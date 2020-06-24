@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, JAVON">
+    <meta name="keywords" content="HTML+CSS制作心跳特效, JAVON">
     <meta name="description" content="如果你想被人们记得的久一点，请靠作品，不要靠作">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | JAVON</title>
+    <title>HTML+CSS制作心跳特效 | JAVON</title>
     <link rel="icon" type="image/png" href="/medias/fac.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -264,12 +264,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">HTML+CSS制作心跳特效</h1>
                 </div>
             </div>
         </div>
@@ -398,7 +398,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-23
+                    2020-06-24
                 </div>
                 
 
@@ -414,20 +414,83 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+                <p>今天来制作一个简单的心跳效果，不需要很多代码，更不需要写js代码，只要在body添加一个div，充分利用CSS展现就可以啦。</p>
+<p><b>1.首先我们在页面添加一个可视化的盒子</b></p>
+<pre><code>1  &lt;body&gt;
+2     &lt;div class=&quot;heart&quot;&gt;&lt;/div&gt;
+3  &lt;/body&gt;</code></pre><p><b>2.然后给它先变成一颗心</b>        </p>
+<pre><code>1 .heart{
+2    position:relative;
+3    width:100px; 
+4    height:100px;
+5    margin:100px;
+6 }
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+1 .heart:after,
+2 .heart:before{
+3   position:absolute;
+4   width:60px;
+5   height:100%;
+6   background-color:#ff0000;
+7   content:&quot;&quot;;
+8   border-radius:50% 50% 0 0;
+9 }
+10 .heart:before{
+11   left:0;
+12   transform:rotate(-52deg);
+13 }
+14 .heart:after{
+15   right:0;
+16   transform:rotate(49deg);
+17 }</code></pre><p><b>3.最后设置一下动画animation，这里要说一下animation必须和@keyframes一起用哦，因为动画没有动画帧就动不了啦</b>    </p>
+<pre><code>1  animation:scale 1s linear infinite;
+2  /*名称 1s 匀速 无限循环*/</code></pre><p>我们让它水平垂直两倍缩放</p>
+<pre><code>1  @keyframes scale{   /*动画帧*/
+2    50%{transform:scale(2)}
+3  }</code></pre><p>然后我们看一下效果</p>
+<p><img src="/medias/heart.gif" alt="Image text"></p>
+<p>有点丑，不喜欢的伙伴可以自己再去改一改外貌第一次写博客有点不知道怎么表达，反正过程都在这里啦，下面是源代码</p>
+<pre><code>1   &lt;!doctype html&gt;
+2   &lt;html&gt;
+3   &lt;head&gt; 
+4   &lt;meta charset=&quot;UTF-8&quot;&gt;
+5   &lt;title&gt;心跳效果&lt;/title&gt;
+6   &lt;style&gt;
+7    .heart{
+8     position:relative;
+9     width:100px;
+10    height:100px;
+11    margin:100px;
+12    animation:scale 1s linear infinite;
+13    /*名称 1s 匀速 无限循环*/
+14   }
+15   @keyframes scale{   /*必须和animation一起用  动画帧*/
+16     50%{transform:scale(2)}
+17   }
+18   .heart:after,
+19   .heart:before{
+20     position:absolute;
+21     width:60px;
+22     height:100%;
+23     background-color:#ff6666;
+24     content:&quot;&quot;;
+25     border-radius:50% 50% 0 0;
+26   }
+27   .heart:before{
+28     left:0;
+29     transform:rotate(-52deg);
+30   }
+31   .heart:after{
+32     right:0;
+33     transform:rotate(49deg);
+34   }
+35  &lt;/style&gt;
+36  &lt;/head&gt;
+37  &lt;!-- 可视化区域--&gt;
+38  &lt;body&gt;
+39    &lt;div class=&quot;heart&quot;&gt;&lt;/div&gt;
+40  &lt;/body&gt;
+41  &lt;/html&gt;</code></pre>
             </div>
             <hr/>
 
@@ -452,7 +515,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/KT-Javon/KT-Javon.github.io/2020/06/23/hello-world/">https://github.com/KT-Javon/KT-Javon.github.io/2020/06/23/hello-world/</a>
+                    <a href="https://github.com/KT-Javon/KT-Javon.github.io/2020/06/24/heart/">https://github.com/KT-Javon/KT-Javon.github.io/2020/06/24/heart/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -655,9 +718,51 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/06/24/heart/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="HTML+CSS制作心跳特效">
+                        
+                        <span class="card-title">HTML+CSS制作心跳特效</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            今天来制作一个简单的心跳效果，不需要很多代码，更不需要写js代码，只要在body添加一个div，充分利用CSS展现就可以啦。
+1.首先我们在页面添加一个可视化的盒子
+1  &lt;body&gt;
+2     &lt;div class=&
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            刘若初
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/06/23/article-title/">
                     <div class="card-image">
@@ -675,43 +780,6 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-23
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            刘若初
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/06/23/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2020-06-23
                             </span>
@@ -723,7 +791,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
