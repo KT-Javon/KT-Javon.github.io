@@ -266,7 +266,7 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background-image: linear-gradient(to right, #FF1493 0%, #FF00FF 100%);
 }
 
 .text-color {
@@ -322,6 +322,7 @@ header .brand-logo .logo-img {
 
 header .brand-logo .logo-span {
     font-size: 2rem;
+    display: none;
 }
 
 /*修改顶部 logo 的文字垂直对齐为 top，避免默认 middle 看起来偏下*/
@@ -339,14 +340,13 @@ header .side-nav .mobile-head {
 
 header .side-nav .mobile-head img {
     margin-top: 30px;
-    width: 75px;
-    height: 75px;
 }
 
 header .side-nav .mobile-head .logo-name {
     margin-top: -30px;
     padding-left: 10px;
     font-size: 1.5rem;
+    display: none;
 }
 
 header .side-nav .mobile-head .logo-desc {
