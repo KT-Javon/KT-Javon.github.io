@@ -384,12 +384,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/HTML/">
+                                <span class="chip bg-color">HTML</span>
+                            </a>
+                        
+                            <a href="/tags/CSS/">
+                                <span class="chip bg-color">CSS</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%BF%83%E8%B7%B3%E7%89%B9%E6%95%88/" class="post-category">
+                                心跳特效
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -416,81 +433,81 @@
             <div id="articleContent">
                 <p>今天来制作一个简单的心跳效果，不需要很多代码，更不需要写js代码，只要在body添加一个div，充分利用CSS展现就可以啦。</p>
 <p><b>1.首先我们在页面添加一个可视化的盒子</b></p>
-<pre><code>1  &lt;body&gt;
-2     &lt;div class=&quot;heart&quot;&gt;&lt;/div&gt;
-3  &lt;/body&gt;</code></pre><p><b>2.然后给它先变成一颗心</b>        </p>
-<pre><code>1 .heart{
-2    position:relative;
-3    width:100px; 
-4    height:100px;
-5    margin:100px;
-6 }
-
-1 .heart:after,
-2 .heart:before{
-3   position:absolute;
-4   width:60px;
-5   height:100%;
-6   background-color:#ff0000;
-7   content:&quot;&quot;;
-8   border-radius:50% 50% 0 0;
-9 }
-10 .heart:before{
-11   left:0;
-12   transform:rotate(-52deg);
-13 }
-14 .heart:after{
-15   right:0;
-16   transform:rotate(49deg);
-17 }</code></pre><p><b>3.最后设置一下动画animation，这里要说一下animation必须和@keyframes一起用哦，因为动画没有动画帧就动不了啦</b>    </p>
-<pre><code>1  animation:scale 1s linear infinite;
-2  /*名称 1s 匀速 无限循环*/</code></pre><p>我们让它水平垂直两倍缩放</p>
-<pre><code>1  @keyframes scale{   /*动画帧*/
-2    50%{transform:scale(2)}
-3  }</code></pre><p>然后我们看一下效果</p>
+<pre><code>&lt;body&gt;
+    &lt;div class=&quot;heart&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;</code></pre><p><b>2.然后给它先变成一颗心</b>        </p>
+<pre><code>.heart{
+    position:relative;
+    width:100px; 
+    height:100px;
+    margin:100px;
+}
+.heart:after,
+.heart:before{
+    position:absolute;
+    width:60px;
+    height:100%;
+    background-color:#ff0000;
+    content:&quot;&quot;;
+    border-radius:50% 50% 0 0;
+}
+.heart:before{
+    left:0;
+    transform:rotate(-52deg);
+}
+.heart:after{
+    right:0;
+    transform:rotate(49deg);
+}</code></pre><p><b>3.最后设置一下动画animation，这里要说一下animation必须和@keyframes一起用哦，因为动画没有动画帧就动不了啦</b>    </p>
+<pre><code>animation:scale 1s linear infinite;
+/*名称 1s 匀速 无限循环*/</code></pre><p>我们让它水平垂直两倍缩放</p>
+<pre><code>@keyframes scale{   
+    /*动画帧*/
+    50%{transform:scale(2)}
+}</code></pre><p>然后我们看一下效果</p>
 <p><img src="/medias/heart.gif" alt="Image text"></p>
 <p>有点丑，不喜欢的伙伴可以自己再去改一改外貌第一次写博客有点不知道怎么表达，反正过程都在这里啦，下面是源代码</p>
-<pre><code>1   &lt;!doctype html&gt;
-2   &lt;html&gt;
-3   &lt;head&gt; 
-4   &lt;meta charset=&quot;UTF-8&quot;&gt;
-5   &lt;title&gt;心跳效果&lt;/title&gt;
-6   &lt;style&gt;
-7    .heart{
-8     position:relative;
-9     width:100px;
-10    height:100px;
-11    margin:100px;
-12    animation:scale 1s linear infinite;
-13    /*名称 1s 匀速 无限循环*/
-14   }
-15   @keyframes scale{   /*必须和animation一起用  动画帧*/
-16     50%{transform:scale(2)}
-17   }
-18   .heart:after,
-19   .heart:before{
-20     position:absolute;
-21     width:60px;
-22     height:100%;
-23     background-color:#ff6666;
-24     content:&quot;&quot;;
-25     border-radius:50% 50% 0 0;
-26   }
-27   .heart:before{
-28     left:0;
-29     transform:rotate(-52deg);
-30   }
-31   .heart:after{
-32     right:0;
-33     transform:rotate(49deg);
-34   }
-35  &lt;/style&gt;
-36  &lt;/head&gt;
-37  &lt;!-- 可视化区域--&gt;
-38  &lt;body&gt;
-39    &lt;div class=&quot;heart&quot;&gt;&lt;/div&gt;
-40  &lt;/body&gt;
-41  &lt;/html&gt;</code></pre>
+<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt; 
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;心跳效果&lt;/title&gt;
+&lt;style&gt;
+    .heart{
+       position:relative;
+       width:100px;
+       height:100px;
+       margin:100px;
+       animation:scale 1s linear infinite;
+       /*名称 1s 匀速 无限循环*/
+    }
+    @keyframes scale{   
+       /*必须和animation一起用  动画帧*/
+       50%{transform:scale(2)}
+    }
+   .heart:after,
+   .heart:before{
+       position:absolute;
+       width:60px;
+       height:100%;
+       background-color:#ff6666;
+       content:&quot;&quot;;
+       border-radius:50% 50% 0 0;
+    }
+    .heart:before{
+       left:0;
+       transform:rotate(-52deg);
+    }
+    .heart:after{
+       right:0;
+       transform:rotate(49deg);
+    }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;heart&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
             </div>
             <hr/>
 
@@ -552,7 +569,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/HTML/">
+                                    <span class="chip bg-color">HTML</span>
+                                </a>
+                            
+                                <a href="/tags/CSS/">
+                                    <span class="chip bg-color">CSS</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -735,10 +760,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            今天来制作一个简单的心跳效果，不需要很多代码，更不需要写js代码，只要在body添加一个div，充分利用CSS展现就可以啦。
-1.首先我们在页面添加一个可视化的盒子
-1  &lt;body&gt;
-2     &lt;div class=&
+                            今天来制作一个简单的心跳效果，不需要很多代码，更不需要写js代码，只要在body添加一个div，充分利用CSS展现就可以啦
                         
                     </div>
                     <div class="publish-info">
@@ -747,13 +769,29 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            刘若初
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%BF%83%E8%B7%B3%E7%89%B9%E6%95%88/" class="post-category">
+                                    心跳特效
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/HTML/">
+                        <span class="chip bg-color">HTML</span>
+                    </a>
+                    
+                    <a href="/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -776,7 +814,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一根小小的柱子，一截细细的链子，拴得住一头千斤重的大象，这不荒谬吗？可这荒谬的场景在印度和泰国随处可见。那些驯象人，在大象还是小象的时候，就用一条铁链将它绑在水泥柱或钢柱上，无论小象怎么挣扎都无法挣脱。小象渐渐地习惯了不挣扎，直到长成了大象
+                            一根小小的柱子，一截细细的链子，拴得住一头千斤重的大象，这不荒谬吗？可这荒谬的场景在印度和泰国随处可见。那些驯象人，在大象还是小象的时候，就用一条铁链将它绑在水泥柱或钢柱上，无论小象怎么挣扎都无法挣脱。小象渐渐地习惯了不挣扎，直到长成了大象，可以轻而易举地挣脱链子时，也不挣扎。
                         
                     </div>
                     <div class="publish-info">
@@ -785,11 +823,27 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            刘若初
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%B9%A0%E6%83%AF%E4%B8%8E%E8%87%AA%E7%84%B6/" class="post-category">
+                                    习惯与自然
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AF%93%E8%A8%80%E6%95%85%E4%BA%8B/">
+                        <span class="chip bg-color">寓言故事</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BF%83%E5%BE%97/">
+                        <span class="chip bg-color">心得</span>
+                    </a>
+                    
                 </div>
                 
             </div>
